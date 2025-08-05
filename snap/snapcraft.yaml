@@ -1,0 +1,46 @@
+name: pixieditor
+title: PixiEditor
+base: core24
+version: 2.0.1.7
+adopt-info: pixieditor
+summary: Universal 2D Graphics Editor
+description: |
+  PixiEditor is a Universal Editor for all your 2D needs.
+
+website: https://pixieditor.net/
+issues: https://github.com/kenvandine/pixieditor-snap/issues
+source-code:
+  - https://github.com/kenvandine/pixieditor-snap
+  - https://github.com/PixiEditor/PixiEditor
+contact: https://github.com/kenvandine/pixieditor-snap/issues
+grade: stable
+confinement: strict
+compression: lzo
+icon: pixieditor.png
+license: LGPL-3.0+
+
+platforms:
+  amd64:
+
+layout:
+  /usr/lib/pixieditor:
+    bind: $SNAP/usr/lib/pixieditor
+
+parts:
+  pixieditor:
+    plugin: dump
+    source: https://github.com/PixiEditor/PixiEditor/releases/download/$SNAPCRAFT_PROJECT_VERSION/PixiEditor-$SNAPCRAFT_PROJECT_VERSION-$CRAFT_ARCH_BUILD_FOR-linux.deb
+    override-pull: |
+      craftctl default
+      sed -i 's|Icon=pixieditor|Icon=${SNAP}/usr/share/icons/hicolor/512x512/apps/pixieditor.png|' $CRAFT_PART_SRC/usr/share/applications/PixiEditor.desktop
+    prime:
+      - usr
+
+apps:
+  pixieditor:
+    extensions: [gnome]
+    desktop: usr/share/applications/PixiEditor.desktop
+    command: usr/bin/pixieditor
+    plugs:
+      - home
+      - removable-media
