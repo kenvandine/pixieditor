@@ -1,7 +1,7 @@
 name: pixieditor
 title: PixiEditor
 base: core24
-version: 2.0.1.9
+version: 2.0.1.11
 adopt-info: pixieditor
 summary: Universal 2D Graphics Editor
 description: |
