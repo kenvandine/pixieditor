@@ -31,3 +31,21 @@ involved in running tests.
   design — tests run on a registered remote runner.
 - Redundant upstream-polling / sync-release workflows that duplicate automated-ken's
   own version-bump automation should be removed to avoid conflicting/duplicate PRs.
+
+## Upstream release detection
+
+Upstream releases live at
+`https://github.com/PixiEditor/PixiEditor/releases`. This repo's
+`source:` is a full release-asset download URL
+(`https://github.com/PixiEditor/PixiEditor/releases/download/$SNAPCRAFT_PROJECT_VERSION/...`),
+not a bare repo URL, so `owner/repo` must be matched anywhere in the
+path (not just at the very end of the string) to correctly infer
+`PixiEditor/PixiEditor` as the upstream slug.
+
+To check for a new version:
+
+- Query `https://api.github.com/repos/PixiEditor/PixiEditor/releases/latest`
+  (excludes drafts/prereleases) and strip the leading `v` from
+  `tag_name`.
+- Compare against the top-level `version:` field in `snap/snapcraft.yaml`
+  and update it directly if different.
