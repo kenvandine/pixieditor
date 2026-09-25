@@ -5,6 +5,6 @@ Resource         kvm.resource
 
 *** Test Cases ***
 Pixieditor Launches And Renders
-    [Documentation]    Verify pixieditor snap launches and renders a UI on Mir
+    [Documentation]    Verify pixieditor snap launches and renders a UI on a real GNOME desktop session (no Mir compositor or VNC required)
     [Tags]    smoke    yarf:certification_status: blocker
     Log Screenshot
