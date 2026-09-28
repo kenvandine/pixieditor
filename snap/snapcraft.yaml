@@ -8,11 +8,11 @@ description: |
   PixiEditor is a Universal Editor for all your 2D needs.
 
 website: https://pixieditor.net/
-issues: https://github.com/kenvandine/pixieditor-snap/issues
+issues: https://github.com/kenvandine/pixieditor/issues
 source-code:
-  - https://github.com/kenvandine/pixieditor-snap
+  - https://github.com/kenvandine/pixieditor
   - https://github.com/PixiEditor/PixiEditor
-contact: https://github.com/kenvandine/pixieditor-snap/issues
+contact: https://github.com/kenvandine/pixieditor/issues
 grade: stable
 confinement: strict
 compression: lzo
